@@ -2,7 +2,27 @@
     ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="row" style="background: #8707070a;">
+    <div class="col-12 col-sm-8" style="padding: 7rem; padding-right: 0px;">
+        <h1 style="font-family: 'Space Grotesk'; font-size: 46px">
+            <span id="auto-type" style="font-family: 'Space Grotesk'; background: #ffe0e0; color: rgb(254, 102, 103); font-weight: bold; padding: 7px"></span> PREPARATION WITH PSZ
+        </h1>
+        <h1 class="my-4" style="font-family:'Hind Siliguri'; font-size: 50px">ডুয়েট ভর্তিযুদ্ধে নিজেকে একধাপ এগিয়ে রাখতে প্রস্তুতি হোক সেরা শিক্ষকদের সাথে</h1>
+        <h3 class="my-4 text-white bg-primary d-inline p-1" style="font-family:'Li Ador Noirrit'; font-size: 24px">Academic কিংবা DUET ভর্তি পরীক্ষার সেরা Preparation নাও ঘরে বসেই</h3>
+    </div>
+    <div class="col-12 col-sm-4">
+        <img src="~/images/Sahid-Minar.png" />
+    </div>
 </div>
+
+@section Scripts {
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed("#auto-type", {
+            strings : ["DUET ADMISSION", "ACADEMIC"],
+            typeSpeed : 150,
+            backSpeed : 150,
+            loop : true
+        });
+    </script>
+}

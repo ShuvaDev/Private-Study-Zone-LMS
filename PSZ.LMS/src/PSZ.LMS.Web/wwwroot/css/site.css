@@ -1,3 +1,11 @@
+@import url(https://db.onlinewebfonts.com/c/0a6ee448d1bd65c56f6cf256a7c6f20a?family=Bahnschrift);
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/li-ador-noirrit');
+@import url('https://fonts.cdnfonts.com/css/space-grotesk');
+* {
+  font-family: Bahnschrift;
+}
+
 html {
   font-size: 14px;
 }
@@ -18,7 +26,7 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
 
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
@@ -28,4 +36,32 @@ body {
 
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
+}
+
+
+.custom-header {
+    padding: 10px 20px;
+}
+.brand-text {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.search-container {
+    position: relative;
+}
+
+.search-container input {
+    padding-left: 40px; /* Space for icon */
+    background-color: #E1E9FD;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: gray;
 }
