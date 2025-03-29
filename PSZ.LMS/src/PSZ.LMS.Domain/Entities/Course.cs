@@ -32,7 +32,7 @@ namespace PSZ.LMS.Domain.Entities
 
         public CourseContent? CourseContent { get; set; }
 
-        // Teacher
+        // Instructor
         // EnrolledStudents
 
 

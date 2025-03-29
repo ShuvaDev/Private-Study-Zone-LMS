@@ -8,6 +8,6 @@ namespace PSZ.LMS.Domain.Enums
 {
     public enum AccessDurationUnit
     {
-        Day, Week, Month, Year, LifeTime
+        DAY, WEEK, MONTH, YEAR, LIFE_TIME
     }
 }

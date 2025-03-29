@@ -8,44 +8,160 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/PSZ.LMS.Web.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    @await RenderSectionAsync("Styles", required: false)
 </head>
-<body>
+<body class="preload">
+    <!-- Preloader section -->
+    <div class="loader-wrapper">
+        <span class="loader"><span class="loader-inner">P</span></span>
+        <span class="loader"><span class="loader-inner">S</span></span>
+        <span class="loader"><span class="loader-inner">Z</span></span>
+    </div>
+
+    <!-- Header section -->
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">PSZ.LMS.Web</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
+        <div class="wrapper">
+            <div class="container py-2">
+                <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background: white !important;">
+                    <div class="container-fluid">
+                        <a href="/" style="text-decoration: none">
+                            <img src="~/images/brand-logo.png" alt="Logo" class="brand-logo">
+                            <span class="brand-name text-primary">Private Study Zone</span>
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="explore-nav navbar-nav me-auto mb-2 mb-lg-0" style="margin: auto;">
+                                <li class="nav-item">
+                                        <a class="nav-link" aria-current="page" href="/">Home</a>
+                                </li>
+                            
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Courses
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                     <a class="nav-link" asp-controller="Home" asp-action="AboutUs">About Us</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Home" asp-action="Contact">Contact</a>
+                                </li>
+                            </ul>
+
+                            <partial name="_LoginPartial" />
+                        </div>
+                    </div>
+                </nav>
             </div>
-        </nav>
+        </div>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+
+    <!-- Main section -->
+    <div>
+        <main role="main">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+	<!-- Footer section -->
+    <footer class="edu-footer pt-5">
         <div class="container">
-            &copy; 2025 - PSZ.LMS.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="row g-5">
+                <!-- Brand Column -->
+                <div class="col-lg-4">
+                    <a href="#" class="edu-brand">Private Study Zone</a>
+                    <p class="small">Your Gateway to Success in DUET & Polytechnic Admissions</p>
+                    <div class="d-flex gap-3 mt-3">
+                        <a href="#" class="footer-link">
+                            <i class="fab fa-facebook fa-lg"></i>
+                        </a>
+                        <a href="#" class="footer-link">
+                            <i class="fab fa-whatsapp fa-lg"></i>
+                        </a>
+                        <a href="#" class="footer-link">
+                            <i class="fab fa-youtube fa-lg"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-6">
+                    <h6 class="footer-heading">Courses</h6>
+                    <div class="d-flex flex-column">
+                        <a href="#" class="footer-link small mb-2">DUET Admission</a>
+                        <a href="#" class="footer-link small mb-2">Polytechnic Courses</a>
+                        <a href="#" class="footer-link small mb-2">Crash Courses</a>
+                        <a href="#" class="footer-link small">Special Packages</a>
+                    </div>
+                </div>
+
+                <!-- Resources -->
+                <div class="col-lg-2 col-6">
+                    <h6 class="footer-heading">Resources</h6>
+                    <div class="d-flex flex-column">
+                        <a href="#" class="footer-link small mb-2">Study Materials</a>
+                        <a href="#" class="footer-link small mb-2">Sample Questions</a>
+                        <a href="#" class="footer-link small mb-2">Previous Papers</a>
+                        <a href="#" class="footer-link small">FAQs</a>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="col-lg-4">
+                    <h6 class="footer-heading">Contact Us</h6>
+                    <div class="contact-info small">
+                        <p class="mb-3">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Academic Tower, 12/B Road 7<br>
+                            Dhaka 1212, Bangladesh
+                        </p>
+                        <p class="mb-3">
+                            <i class="fas fa-phone"></i>
+                            +880 1711-234567<br>
+                            +880 1812-345678
+                        </p>
+                        <p class="mb-0">
+                            <i class="fas fa-envelope"></i>
+                            info@privatestudyzone.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <hr class="my-5 border-gray-700">
+
+            <!-- Bottom Row -->
+            <div class="row py-3">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="small mb-0">© 2023 Private Study Zone. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="d-flex gap-3 justify-content-md-end">
+                        <a href="#" class="text-muted small text-decoration-none">Admission Policy</a>
+                        <a href="#" class="text-muted small text-decoration-none">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    
 </body>
 </html>

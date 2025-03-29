@@ -1,0 +1,201 @@
+﻿/*banner css*/
+.banner-wrapper {
+    background-image: linear-gradient( 180deg, hsl(0deg 45% 96%) 0%, hsl(0deg 45% 96%) 13%, hsl(0deg 46% 96%) 18%, hsl(0deg 46% 96%) 23%, hsl(0deg 46% 96%) 27%, hsl(0deg 46% 97%) 30%, hsl(0deg 46% 97%) 33%, hsl(0deg 46% 97%) 37%, hsl(0deg 46% 97%) 40%, hsl(0deg 46% 97%) 43%, hsl(0deg 46% 98%) 46%, hsl(0deg 46% 98%) 49%, hsl(0deg 46% 98%) 51%, hsl(0deg 46% 98%) 54%, hsl(0deg 46% 98%) 57%, hsl(0deg 46% 98%) 60%, hsl(0deg 46% 99%) 63%, hsl(0deg 46% 99%) 67%, hsl(0deg 46% 99%) 70%, hsl(0deg 46% 99%) 73%, hsl(0deg 46% 99%) 77%, hsl(0deg 46% 100%) 82%, hsl(0deg 46% 100%) 87%, hsl(0deg 0% 100%) 100% );
+}
+    .banner-wrapper .banner-title-1 {
+        font-family: 'Space Grotesk';
+        font-size: 40px;
+    }
+    .banner-wrapper .banner-title-1 #auto-type {
+        font-family: 'Space Grotesk';
+        background: #ffe0e0;
+        color: rgb(254, 102, 103);
+        font-weight: bold;
+        padding: 7px;
+    }
+    .banner-wrapper .banner-title-2 {
+        font-family: 'Hind Siliguri';
+        font-size: 45px;
+    }
+    .banner-wrapper .banner-title-3 {
+        font-family: 'Li Ador Noirrit';
+        font-size: 24px;
+    }
+
+        @media (max-width: 992px) {
+            .banner-title-1 {
+        font-size: 30px !important;
+    }
+
+    .banner-title-2 {
+        font-size: 35px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner-title-1 {
+        font-size: 30px !important;
+    }
+
+    .banner-title-2 {
+        font-size: 32px !important;
+    }
+
+    .banner {
+        text-align: center !important;
+    }
+}
+
+
+/* Social Card css */
+.social-card {
+    border-radius: 1.5rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.social-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.3);
+    z-index: -1;
+}
+
+.bg-glass-blue {
+    background: rgba(23, 92, 230, 0.1);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+}
+
+.bg-glass-red {
+    background: rgba(230, 23, 23, 0.1);
+    box-shadow: 0 8px 32px rgba(135, 31, 31, 0.1);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: #1e40af;
+    transition: transform 0.3s ease;
+    padding: 10px 0px 0px 30px;
+}
+
+.bg-glass-red .card-icon {
+    color: #dc2626;
+}
+
+.card-content {
+    padding: 0px 0px 18px 30px;
+}
+
+.card-content h3 {
+    color: #1e293b;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.card-content p {
+    color: #64748b;
+    margin-bottom: 1.5rem;
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #1e40af;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.bg-glass-red .action-btn {
+    color: #dc2626;
+}
+
+.social-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+}
+
+.social-card:hover .card-icon {
+    transform: scale(1.1);
+}
+
+.action-btn i {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.social-card:hover .action-btn i {
+    transform: translateX(3px);
+}
+
+
+
+/* Course Card CSS*/
+.rating-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.stars {
+    color: #ffd700;
+    margin-right: 8px;
+}
+
+.review-count {
+    font-size: 0.85em;
+    color: #666;
+}
+
+.course-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px 0;
+    border-top: 1px solid #ecf0f1;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+.course-type {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.course-badge {
+    background: #2d98da;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.video-count {
+    color: #7f8c8d;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9em;
+}
+
+
+
+.carousel-inner {
+    border-radius: 15px;
+    border: 5px solid #ffa500;
+}

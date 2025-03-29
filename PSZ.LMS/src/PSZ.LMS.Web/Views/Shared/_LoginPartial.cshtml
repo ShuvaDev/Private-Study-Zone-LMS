@@ -5,7 +5,7 @@
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {
-    <li class="nav-item">
+    <li class="nav-item ">
         <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
     </li>
     <li class="nav-item">
@@ -16,11 +16,11 @@
 }
 else
 {
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
+    <li class="nav-item btn btn-sm btn-primary my-2 my-lg-0 mx-0 mx-lg-2">
+        <a class="nav-link p-0 m-0 text-white" asp-area="Identity" asp-page="/Account/Register">Register</a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+    <li class="nav-item btn btn-sm btn-outline-primary">
+        <a class="nav-link p-0 m-0" asp-area="Identity" asp-page="/Account/Login">Login</a>
     </li>
 }
 </ul>
