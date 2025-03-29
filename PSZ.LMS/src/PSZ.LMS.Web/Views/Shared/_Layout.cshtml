@@ -9,88 +9,72 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/PSZ.LMS.Web.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     @await RenderSectionAsync("Styles", required: false)
 </head>
-<body>
+<body class="preload">
+    <!-- Preloader section -->
+    <div class="loader-wrapper">
+        <span class="loader"><span class="loader-inner">P</span></span>
+        <span class="loader"><span class="loader-inner">S</span></span>
+        <span class="loader"><span class="loader-inner">Z</span></span>
+    </div>
+
+    <!-- Header section -->
     <header>
-        <div class="container p-4 bg-white">
-            
-
-            <div class="row">
-                <div class="col-6 col-md-4 col-xl-3 d-flex align-items-center brand p-0">
-                    <img src="~/images/brand-logo.png" alt="Logo" class="brand-logo" height="70px" width="70px">
-                    <span class="brand-text text-primary">Private Study Zone</span>
-                </div>
-                <div class="col-2 col-xl-3 d-none d-md-block mt-3 p-0">
-                    <div class="dropdown">
-                        <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" style="padding: 5px">
-                            Categories
+        <div class="wrapper">
+            <div class="container py-2">
+                <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background: white !important;">
+                    <div class="container-fluid">
+                        <a href="/" style="text-decoration: none">
+                            <img src="~/images/brand-logo.png" alt="Logo" class="brand-logo">
+                            <span class="brand-name text-primary">Private Study Zone</span>
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
                         </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Category 1</a></li>
-                            <li><a class="dropdown-item" href="#">Category 2</a></li>
-                            <li><a class="dropdown-item" href="#">Category 3</a></li>
-                        </ul>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="explore-nav navbar-nav me-auto mb-2 mb-lg-0" style="margin: auto;">
+                                <li class="nav-item">
+                                        <a class="nav-link" aria-current="page" href="/">Home</a>
+                                </li>
+                            
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Courses
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                     <a class="nav-link" asp-controller="Home" asp-action="AboutUs">About Us</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Home" asp-action="Contact">Contact</a>
+                                </li>
+                            </ul>
+
+                            <partial name="_LoginPartial" />
+                        </div>
                     </div>
-                </div>
-                <div class="col-6 p-0">
-                    <div class="search-container mt-3">
-                        <i class="bi bi-search search-icon"></i>
-                        <input type="text" class="form-control" placeholder="Search for course content...">
-                    </div>
-                </div>
+                </nav>
             </div>
-
-
-
         </div>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow" style="font-size:18px">
-            <div class="container">
-                <!-- Navbar Toggler (Left Side) -->
-                <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-
-                <!-- Navbar Content -->
-                <div class="collapse navbar-collapse w-100" id="navbarNav">
-                    <!-- Navigation Links (Left Side) -->
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Courses</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Contact</a>
-                        </li>
-                    </ul>
-
-                    <!-- Login/Register (Always on Right) -->
-                    <div class="ms-auto d-flex align-items-center">
-                        <partial name="_LoginPartial" />
-                    </div>
-                </div>
-            </div>
-        </nav>
-
-
-
-
     </header>
+
+    <!-- Main section -->
     <div>
-        <main role="main" class="pb-3">
+        <main role="main">
             @RenderBody()
         </main>
     </div>
 
+	<!-- Footer section -->
     <footer class="edu-footer pt-5">
         <div class="container">
             <div class="row g-5">
@@ -178,5 +162,6 @@
 
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    
 </body>
 </html>

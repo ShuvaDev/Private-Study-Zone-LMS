@@ -1,351 +1,273 @@
 ﻿@{
-    ViewData["Title"] = "Home";
+    ViewData["Title"] = "PSZ";
 }
 
 @section Styles {
-    <style>
-        .carousel-inner {
-                border-radius: 15px;
-                border: 5px solid #ffa500;
-        }
-    </style>
-
     <link rel="stylesheet" href="~/css/slick.css">
     <link rel="stylesheet" href="~/css/slick.custom.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://db.onlinewebfonts.com/c/0a6ee448d1bd65c56f6cf256a7c6f20a?family=Bahnschrift" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/fontawesome.min.css" integrity="sha512-v8QQ0YQ3H4K6Ic3PJkym91KoeNT5S3PnDKvqnwqFD1oiqIl653crGZplPdU5KKtHjO0QKcQ2aUlQZYjHczkmGw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        .rating-section {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .stars {
-            color: #ffd700;
-            margin-right: 8px;
-        }
-
-        .review-count {
-            font-size: 0.85em;
-            color: #666;
-        }
-
-        .course-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            padding: 10px 0;
-            border-top: 1px solid #ecf0f1;
-            border-bottom: 1px solid #ecf0f1;
-        }
-
-        .course-type {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .course-badge {
-            background: #2d98da;
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .video-count {
-            color: #7f8c8d;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 0.9em;
-        }
-    </style>
-
+    <link rel="stylesheet" href="~/css/home.index.css">
 }
 
 <div class="banner-wrapper">
     <div class="container">
-        <div class="row banner" style="min-height: 450px;">
+        <div class="row banner pt-5" style="min-height: 450px;">
             <div class="col-12 col-md-7 col-lg-8 order-1 order-md-0 py-5">
-                <h1 class="banner-title-1" style="font-family: 'Space Grotesk'; font-size: 40px;">
-                    <span id="auto-type" style="font-family: 'Space Grotesk'; background: #ffe0e0; color: rgb(254, 102, 103); font-weight: bold; padding: 7px"></span> PREPARATION WITH PSZ
+                <h1 class="banner-title-1">
+                    <span id="auto-type"></span> PREPARATION WITH PSZ
                 </h1>
-                <h1 class="banner-title-2 my-5" style="font-family:'Hind Siliguri'; font-size: 45px">ডুয়েট ভর্তিযুদ্ধে নিজেকে একধাপ এগিয়ে রাখতে প্রস্তুতি হোক সেরা শিক্ষকদের সাথে</h1>
-                <h3 class="banner-title-3 my-5 text-white bg-primary d-inline p-1" style="font-family:'Li Ador Noirrit'; font-size: 24px">Academic কিংবা DUET ভর্তি পরীক্ষার সেরা Preparation নাও ঘরে বসেই</h3>
+                <h1 class="banner-title-2 my-5">ডুয়েট ভর্তিযুদ্ধে নিজেকে একধাপ এগিয়ে রাখতে প্রস্তুতি হোক সেরা শিক্ষকদের সাথে</h1>
+                <h3 class="banner-title-3 my-5 text-white bg-primary d-inline p-1">Academic কিংবা DUET ভর্তি পরীক্ষার সেরা Preparation নাও ঘরে বসেই</h3>
             </div>
             <div class="col-12 col-md-5 col-lg-4 d-flex justify-content-center order-0 py-5">
                 <img src="~/images/Sahid-Minar.png" width="270px" height="340px"/>
             </div>
         </div>
-        <button class="btn btn-lg btn-dark mx-2" style="font-family: 'Hind Siliguri';">একাউন্ট খুলো  <i class="bi bi-person-circle"></i></button>
-        <button class="btn btn-lg btn-warning" style="font-family: 'Hind Siliguri';">কোর্সগুলো দেখো  <i class="bi bi-box-arrow-in-up-right"></i></button>
+        <a asp-controller="" asp-action="" class="btn btn-lg btn-dark mx-2" style="font-family: 'Hind Siliguri';">একাউন্ট খুলো  <i class="bi bi-person-circle"></i></a>
+        <a asp-controller="" asp-action="" class="btn btn-lg btn-warning" style="font-family: 'Hind Siliguri';">কোর্সগুলো দেখো  <i class="bi bi-box-arrow-in-up-right"></i></a>
     </div>
-</div>
 
-<div class="py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="card text-white py-2" style="background: #0572ff33;color: #1444ff !important;border: 1px dashed;">
-                    <h5 class="text-center p-0"><i class="bi bi-facebook"></i> Join Facebook Group</h5>
+
+    <!-- Social Card Section -->
+    <div class="py-5">
+        <div class="container">
+            <div class="row g-3">
+                <!-- Facebook Group -->
+                <div class="col-12 col-lg-4">
+                    <a href="" target="_blank" class="card-link" style="text-decoration: none;">
+                        <div class="social-card bg-glass-blue">
+                            <div class="card-icon">
+                                <i class="bi bi-people-fill"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Community Hub</h3>
+                                <p class="mb-2">Join 10k+ members in our Facebook group</p>
+                                <div class="action-btn mt-2">
+                                    <span>Explore Community</span>
+                                    <i class="bi bi-arrow-up-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-            </div>
-            <div class="col">
-                <div class="card text-white py-2" style="background: #ffb7b766;color: #ff0000 !important;border: 1px dashed;">
-                    <h5 class="text-center p-0"><i class="bi bi-youtube"></i> Subscribe Youtube Channel</h5>
+
+                <!-- YouTube Channel -->
+                <div class="col-12 col-lg-4">
+                    <a href="https://www.youtube.com/@@PrivateStudyZone" target="_blank" class="card-link" style="text-decoration: none;">
+                        <div class="social-card bg-glass-red">
+                            <div class="card-icon">
+                                <i class="bi bi-play-btn-fill"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Video Content</h3>
+                                <p class="mb-2">Subscribe for weekly tutorials & guides</p>
+                                <div class="action-btn mt-2">
+                                    <span>Watch Videos</span>
+                                    <i class="bi bi-arrow-up-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-            </div>
-            <div class="col">
-                <div class="card text-white py-2" style="background: #0572ff33;color: #1444ff !important;border: 1px dashed;">
-                    <h5 class="text-center p-0"><i class="bi bi-facebook"></i> Follow Facebook Page</h5>
+
+                <!-- Facebook Page -->
+                <div class="col-12 col-lg-4">
+                    <a href="https://www.facebook.com/PrivateStudyZone" target="_blank" class="card-link" style="text-decoration: none;">
+                        <div class="social-card bg-glass-blue">
+                            <div class="card-icon">
+                                <i class="bi bi-megaphone-fill"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Latest Updates</h3>
+                                <p class="mb-2">Follow our official Facebook page</p>
+                                <div class="action-btn mt-2">
+                                    <span>Stay Updated</span>
+                                    <i class="bi bi-arrow-up-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
 
-
+<!-- Course Card Section -->
 <div class="container my-5">
     <h2><span class="text-primary py-2 fw-bold">DUET Admission Non-Department</span> Courses</h2>
     <div class="slick_slide">
-        <div class="colx">
-            <div class="card" style="width: 19.5rem;">
-                <img src="~/images/image4.png" alt="" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title" style="font-family: 'Bahnschrift';">Microprocessor and Interfacing</h5>
-                    <p style="font-size: 0.9em; color: #666;"><i class="fa-solid fa-graduation-cap"></i> S.R. Shuva Dev</p>
-                    <div class="rating-section">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <span class="review-count">(4.5/5 - 1,234 reviews)</span>
+        <div class="card" style="margin: 6px !important;">
+            <img src="~/images/image4.png" alt="" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title" style="font-family: 'Bahnschrift';">Microprocessor and Interfacing</h5>
+                <p style="font-size: 0.9em; color: #666;"><i class="fa-solid fa-graduation-cap"></i> S.R. Shuva Dev</p>
+                <div class="rating-section">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
                     </div>
-                    <div class="course-meta">
-                        <div class="course-type">
-                            <div class="course-badge">
-                                <i class="fas fa-video"></i>
-                                <span>Recorded</span>
-                            </div>
+                    <span class="review-count">(4.5/5 - 1,234 reviews)</span>
+                </div>
+                <div class="course-meta">
+                    <div class="course-type">
+                        <div class="course-badge">
+                            <i class="fas fa-video"></i>
+                            <span>Recorded</span>
                         </div>
-                        <div class="video-count">
-                            <i class="fas fa-play-circle"></i>
-                            <span>24 Videos</span>
-                        </div>
+                    </div>
+                    <div class="video-count">
+                        <i class="fas fa-play-circle"></i>
+                        <span>24 Videos</span>
                     </div>
                 </div>
-                <dvi class="card-footer d-flex justify-content-between" style="background: #effaf6;">
-                    <h5 style="color: #029216"><span class="text-decoration-line-through" style="color: #92cba7;">800&#x09F3;</span>  250 &#x09F3;</h5>
-                     <button class="btn btn-sm btn-success" style="background: #27ae60;"><i class="fa-solid fa-cart-plus"></i> Enroll Now</button>
-                </dvi>
+            </div>
+            <dvi class="card-footer d-flex justify-content-between" style="background: #effaf6;">
+                <h5 style="color: #029216"><span class="text-decoration-line-through" style="color: #92cba7;">800&#x09F3;</span>  250 &#x09F3;</h5>
+                <a asp-controller="Course" asp-action="Details" class="btn btn-sm btn-success" style="background: #27ae60;"><i class="fa-solid fa-cart-plus"></i> Enroll Now</a>
+            </dvi>
+        </div>
+
+        <div class="card" style="margin: 6px !important;">
+            <img src="~/images/image2.png" alt="" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title" style="font-family: 'Bahnschrift';">Microprocessor and Interfacing</h5>
+                <p style="font-size: 0.9em; color: #666;"><i class="fa-solid fa-graduation-cap"></i> S.R. Shuva Dev</p>
+                <div class="rating-section">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <span class="review-count">(4.5/5 - 1,234 reviews)</span>
+                </div>
+                <div class="course-meta">
+                    <div class="course-type">
+                        <div class="course-badge">
+                            <i class="fas fa-video"></i>
+                            <span>Recorded</span>
+                        </div>
+                    </div>
+                    <div class="video-count">
+                        <i class="fas fa-play-circle"></i>
+                        <span>24 Videos</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer d-flex justify-content-between" style="background: #effaf6;">
+                <h5 style="color: #029216"><span class="text-decoration-line-through" style="color: #92cba7;">800&#x09F3;</span>  250 &#x09F3;</h5>
+                <a asp-controller="Course" asp-action="Details" class="btn btn-sm btn-success" style="background: #27ae60;"><i class="fa-solid fa-cart-plus"></i> Enroll Now</a>
             </div>
         </div>
 
-        <div class="colx">
-            <div class="card" style="width: 19.5rem;">
-                <img src="~/images/image2.png" alt="" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title" style="font-family: 'Bahnschrift';">Microprocessor and Interfacing</h5>
-                    <p style="font-size: 0.9em; color: #666;"><i class="fa-solid fa-graduation-cap"></i> S.R. Shuva Dev</p>
-                    <div class="rating-section">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <span class="review-count">(4.5/5 - 1,234 reviews)</span>
+        <div class="card" style="margin: 6px !important;">
+            <img src="~/images/image3.png" alt="" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title" style="font-family: 'Bahnschrift';">Microprocessor and Interfacing</h5>
+                <p style="font-size: 0.9em; color: #666;"><i class="fa-solid fa-graduation-cap"></i> S.R. Shuva Dev</p>
+                <div class="rating-section">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
                     </div>
-                    <div class="course-meta">
-                        <div class="course-type">
-                            <div class="course-badge">
-                                <i class="fas fa-video"></i>
-                                <span>Recorded</span>
-                            </div>
-                        </div>
-                        <div class="video-count">
-                            <i class="fas fa-play-circle"></i>
-                            <span>24 Videos</span>
+                    <span class="review-count">(4.5/5 - 1,234 reviews)</span>
+                </div>
+                <div class="course-meta">
+                    <div class="course-type">
+                        <div class="course-badge">
+                            <i class="fas fa-video"></i>
+                            <span>Recorded</span>
                         </div>
                     </div>
+                    <div class="video-count">
+                        <i class="fas fa-play-circle"></i>
+                        <span>24 Videos</span>
+                    </div>
                 </div>
-                <div class="card-footer d-flex justify-content-between" style="background: #effaf6;">
-                    <h5 style="color: #029216"><span class="text-decoration-line-through" style="color: #92cba7;">800&#x09F3;</span>  250 &#x09F3;</h5>
-                     <button class="btn btn-sm btn-success" style="background: #27ae60;"><i class="fa-solid fa-cart-plus"></i> Enroll Now</button>
-                </div>
+            </div>
+            <div class="card-footer d-flex justify-content-between" style="background: #effaf6;">
+                <h5 style="color: #029216"><span class="text-decoration-line-through" style="color: #92cba7;">800&#x09F3;</span>  250 &#x09F3;</h5>
+                <a asp-controller="Course" asp-action="Details" class="btn btn-sm btn-success" style="background: #27ae60;"><i class="fa-solid fa-cart-plus"></i> Enroll Now</a>
             </div>
         </div>
 
-        <div class="colx">
-            <div class="card" style="width: 19.5rem;">
-                <img src="~/images/image3.png" alt="" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title" style="font-family: 'Bahnschrift';">Microprocessor and Interfacing</h5>
-                    <p style="font-size: 0.9em; color: #666;"><i class="fa-solid fa-graduation-cap"></i> S.R. Shuva Dev</p>
-                    <div class="rating-section">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <span class="review-count">(4.5/5 - 1,234 reviews)</span>
+        <div class="card" style="margin: 6px !important;">
+            <img src="~/images/image1.png" alt="" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title" style="font-family: 'Bahnschrift';">Microprocessor and Interfacing</h5>
+                <p style="font-size: 0.9em; color: #666;"><i class="fa-solid fa-graduation-cap"></i> S.R. Shuva Dev</p>
+                <div class="rating-section">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
                     </div>
-                    <div class="course-meta">
-                        <div class="course-type">
-                            <div class="course-badge">
-                                <i class="fas fa-video"></i>
-                                <span>Recorded</span>
-                            </div>
-                        </div>
-                        <div class="video-count">
-                            <i class="fas fa-play-circle"></i>
-                            <span>24 Videos</span>
+                    <span class="review-count">(4.5/5 - 1,234 reviews)</span>
+                </div>
+                <div class="course-meta">
+                    <div class="course-type">
+                        <div class="course-badge">
+                            <i class="fas fa-video"></i>
+                            <span>Recorded</span>
                         </div>
                     </div>
+                    <div class="video-count">
+                        <i class="fas fa-play-circle"></i>
+                        <span>24 Videos</span>
+                    </div>
                 </div>
-                <div class="card-footer d-flex justify-content-between" style="background: #effaf6;">
-                    <h5 style="color: #029216"><span class="text-decoration-line-through" style="color: #92cba7;">800&#x09F3;</span>  250 &#x09F3;</h5>
-                     <button class="btn btn-sm btn-success" style="background: #27ae60;"><i class="fa-solid fa-cart-plus"></i> Enroll Now</button>
-                </div>
+            </div>
+            <div class="card-footer d-flex justify-content-between" style="background: #effaf6;">
+                <h5 style="color: #029216"><span class="text-decoration-line-through" style="color: #92cba7;">800&#x09F3;</span>  250 &#x09F3;</h5>
+                <a asp-controller="Course" asp-action="Details" class="btn btn-sm btn-success" style="background: #27ae60;"><i class="fa-solid fa-cart-plus"></i> Enroll Now</a>
             </div>
         </div>
 
-        <div class="colx">
-            <div class="card" style="width: 19.5rem;">
-                <img src="~/images/image1.png" alt="" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title" style="font-family: 'Bahnschrift';">Microprocessor and Interfacing</h5>
-                    <p style="font-size: 0.9em; color: #666;"><i class="fa-solid fa-graduation-cap"></i> S.R. Shuva Dev</p>
-                    <div class="rating-section">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <span class="review-count">(4.5/5 - 1,234 reviews)</span>
+        <div class="card" style="margin: 6px !important;">
+            <img src="~/images/image2.png" alt="" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title" style="font-family: 'Bahnschrift';">Microprocessor and Interfacing</h5>
+                <p style="font-size: 0.9em; color: #666;"><i class="fa-solid fa-graduation-cap"></i> S.R. Shuva Dev</p>
+                <div class="rating-section">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
                     </div>
-                    <div class="course-meta">
-                        <div class="course-type">
-                            <div class="course-badge">
-                                <i class="fas fa-video"></i>
-                                <span>Recorded</span>
-                            </div>
-                        </div>
-                        <div class="video-count">
-                            <i class="fas fa-play-circle"></i>
-                            <span>24 Videos</span>
-                        </div>
-                    </div>
+                    <span class="review-count">(4.5/5 - 1,234 reviews)</span>
                 </div>
-                <div class="card-footer d-flex justify-content-between" style="background: #effaf6;">
-                    <h5 style="color: #029216"><span class="text-decoration-line-through" style="color: #92cba7;">800&#x09F3;</span>  250 &#x09F3;</h5>
-                    <button class="btn btn-sm btn-success" style="background: #27ae60;"><i class="fa-solid fa-cart-plus"></i> Enroll Now</button>
+                <div class="course-meta">
+                    <div class="course-type">
+                        <div class="course-badge">
+                            <i class="fas fa-video"></i>
+                            <span>Recorded</span>
+                        </div>
+                    </div>
+                    <div class="video-count">
+                        <i class="fas fa-play-circle"></i>
+                        <span>24 Videos</span>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="colx">
-            <div class="card" style="width: 19.5rem;">
-                <img src="~/images/image2.png" alt="" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title" style="font-family: 'Bahnschrift';">Microprocessor and Interfacing</h5>
-                    <p style="font-size: 0.9em; color: #666;"><i class="fa-solid fa-graduation-cap"></i> S.R. Shuva Dev</p>
-                    <div class="rating-section">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <span class="review-count">(4.5/5 - 1,234 reviews)</span>
-                    </div>
-                    <div class="course-meta">
-                        <div class="course-type">
-                            <div class="course-badge">
-                                <i class="fas fa-video"></i>
-                                <span>Recorded</span>
-                            </div>
-                        </div>
-                        <div class="video-count">
-                            <i class="fas fa-play-circle"></i>
-                            <span>24 Videos</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-footer d-flex justify-content-between" style="background: #effaf6;">
-                    <h5 style="color: #029216"><span class="text-decoration-line-through" style="color: #92cba7;">800&#x09F3;</span>  250 &#x09F3;</h5>
-                    <button class="btn btn-sm btn-success" style="background: #27ae60;"><i class="fa-solid fa-cart-plus"></i> Enroll Now</button>
-                </div>
+            <div class="card-footer d-flex justify-content-between" style="background: #effaf6;">
+                <h5 style="color: #029216"><span class="text-decoration-line-through" style="color: #92cba7;">800&#x09F3;</span>  250 &#x09F3;</h5>
+                <a asp-controller="Course" asp-action="Details" class="btn btn-sm btn-success" style="background: #27ae60;"><i class="fa-solid fa-cart-plus"></i> Enroll Now</a>
             </div>
         </div>
     </div>
 </div>
 
-<div class="container my-5">
-    <h2><span class="text-primary py-2 fw-bold">Diploma CSE 1st Semester</span> Courses</h2>
-    <div class="row">
-        <div class="col">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://image-placeholder.com/images/actual-size/120x90.png" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-
-        </div>
-        <div class="col">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://image-placeholder.com/images/actual-size/120x90.png" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://image-placeholder.com/images/actual-size/120x90.png" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://image-placeholder.com/images/actual-size/120x90.png" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 <div style="background-image: linear-gradient(
@@ -377,46 +299,45 @@
   );">
     <div class="container mt-5 py-5">
         <h1 class="text-center" style="font-family: 'Hind Siliguri';color: navy;font-weight: bold;padding: 20px;">অবাক করা সাফল্যগাঁথা</h1>
-    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
 
-        <!-- Indicators -->
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></button>
-            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"></button>
-            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2"></button>
+            <!-- Indicators -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2"></button>
+            </div>
+
+            <!-- Carousel Items -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="~/images/slider1.png" class="d-block w-100" alt="Slide 1">
+                </div>
+                <div class="carousel-item">
+                        <img src="~/images/slider2.png" class="d-block w-100" alt="Slide 2">
+                </div>
+                <div class="carousel-item">
+                        <img src="~/images/slider1.png" class="d-block w-100" alt="Slide 3">
+                </div>
+            </div>
+
         </div>
-
-        <!-- Carousel Items -->
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="~/images/slider1.png" class="d-block w-100" alt="Slide 1">
-            </div>
-            <div class="carousel-item">
-                    <img src="~/images/slider2.png" class="d-block w-100" alt="Slide 2">
-            </div>
-            <div class="carousel-item">
-                    <img src="~/images/slider1.png" class="d-block w-100" alt="Slide 3">
-            </div>
-        </div>
-
-
     </div>
-</div>
 
 
-<div class="container">
-    <div class="row d-flex justify-content-center align-items-center">
-        <div class="col-md-6 col-sm-6 order-sm-first order-lg-first order-last">
-                <h2 style="font-family: 'Hind Siliguri'">যেমনই হোক পরিস্থিতি</h2>
+    <div class="container py-5">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-md-6 col-sm-6 order-sm-first order-lg-first order-last">
+                    <h2 style="font-family: 'Hind Siliguri'">যেমনই হোক পরিস্থিতি</h2>
 
-                <h1 style="font-family: 'Hind Siliguri'">থেমে থাকবে না প্রস্তুতি</h1>
+                    <h1 style="font-family: 'Hind Siliguri';color: #d30000;">থেমে থাকবে না প্রস্তুতি</h1>
 
-                <p style="font-family: 'Hind Siliguri'">নিজস্ব সফট্ওয়্যার টিমের সার্বক্ষণিক তত্ত্বাবধানে উদ্ভাস-উন্মেষ এর রয়েছে দেশসেরা অনলাইন লার্নিং প্লাটফর্ম <a href="https://online.udvash-unmesh.com/Account/Login">(online.udvash-unmesh.com)</a>।&nbsp; যেকোনো সরকারি বিধি-নিষেধের কারণে শিক্ষা প্রতিষ্ঠান বন্ধ থাকলে সকল কার্যক্রম অনলাইনে চলমান থাকবে। ফলে শিক্ষার্থীদের ধারাবাহিক প্রস্তুতিতে কোনো প্রকার বিঘ্ন ঘটবে না। ২০২২&nbsp;সালের বিভিন্ন ভর্তি পরীক্ষায় উদ্ভাস-উন্মেষ এর শিক্ষার্থীদের ঈর্ষণীয় সাফল্যই তার উৎকৃষ্ট প্রমাণ। উল্লেখ্য যে, অনলাইনেও শিক্ষার্থীদের সুষম প্রস্তুতি নিশ্চিতকরণে MCQ পরীক্ষার পাশাপাশি বাংলাদেশে একমাত্র উদ্ভাস উন্মেষ-ই অফলাইনে&nbsp;Written পরীক্ষার অনুরূপ অনলাইনে Written পরীক্ষা নিয়ে থাকে।</p>
+                    <p style="font-family: 'Hind Siliguri'; text-align: justify;font-size: 19px;">Private Study Zone (PSZ) একটি ডুয়েট অ্যাডমিশন প্রিপারেশন কোচিং সেন্টার যেখানে CSE ডিপার্টমেন্ট এর স্টুডেন্টরা তাদের স্বপ্নের ডুয়েটের জন্য প্রিপারেশন নিয়ে থাকে। ২০২১ সাল থেকে সফলতার সাথে PSZ-তার অফলাইন কার্যক্রম পরিচালনা করে আসছে। কিন্তু দেখা যায় অনেক ছাত্র তাদের আর্থিক অস্বচ্ছলতা বা আরো বিভিন্ন কারণে গাজীপুর এসে ভর্তি প্রস্তুতি নিতে পারে না। যার কারণে তাদের স্বপ্ন সারাজীবন স্বপ্নই থেকে যায়। তাদের কাথা চিন্তা করে মূলত এই অনলাইন কার্যক্রমের যাত্রা। এইবার আর পিছিয়ে থাকবে না কেউ।</p>
+            </div>
+
+            <div class="col-md-6 col-sm-6 easy-img d-flex justify-content-end"><img alt="" class="img-fluid" src="~/images/boy1.png"></div>
         </div>
-
-        <div class="col-md-6 col-sm-6 easy-img d-flex justify-content-end"><img alt="" class="img-fluid" src="~/images/boy1.png"></div>
     </div>
-</div>
 </div>
 
 @section Scripts {
@@ -430,8 +351,6 @@
             loop : true
         });
     </script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js" integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="~/js/slick.min.js"></script>
     <script src="~/js/slick.custom.js"></script>

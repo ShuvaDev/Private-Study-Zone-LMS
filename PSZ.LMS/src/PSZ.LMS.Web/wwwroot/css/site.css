@@ -25,10 +25,6 @@ html {
   min-height: 100%;
 }
 
-body {
-    margin-bottom: 60px;
-}
-
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
   color: var(--bs-secondary-color);
   text-align: end;
@@ -38,75 +34,135 @@ body {
   text-align: start;
 }
 
-
-.custom-header {
-    padding: 10px 20px;
+/* Preloader CSS */
+.preload {
+    overflow: hidden;
 }
-.brand-text {
-    font-size: 20px;
+
+.loader-wrapper {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5000;
+}
+
+.loader {
+    text-align: center;
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    position: relative;
+    border: 4px solid black;
+    animation: loader 2s infinite ease;
+    margin: 5px;
+}
+
+.loader-inner {
+    vertical-align: top;
+    display: inline-block;
+    width: 100%;
+    background-color: black;
+    animation: loader-inner 2s infinite ease-in;
+    color: black;
     font-weight: bold;
-    margin-left: 10px;
+    font-size: 25px;
 }
 
-.search-container {
+@keyframes loader {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(180deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    75% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loader-inner {
+    0% {
+        height: 0%;
+    }
+
+    25% {
+        height: 0%;
+    }
+
+    50% {
+        height: 100%;
+        color: white;
+    }
+
+    75% {
+        height: 100%;
+        color: white;
+    }
+
+    100% {
+        height: 0%;
+        color: white;
+    }
+}
+
+/* Header CSS */
+header .wrapper {
+    box-shadow: 0 -15px 24px rgba(0, 0, 0, 0.3);
     position: relative;
 }
 
-.search-container input {
-    padding-left: 40px; /* Space for icon */
-    background-color: #E1E9FD;
-    border-radius: 10px 10px 10px 10px;
+header .brand-name {
+    font-size: 22px;
+    font-weight: bold;
+    padding: 10px;
 }
 
-.search-icon {
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: gray;
+header .brand-logo {
+    width: 70px;
+    height: 70px;
 }
 
-/*banner css*/
+header .navbar .explore-nav .nav-item .nav-link {
+    font-size: 20px;
+    padding-left: 15px !important;
+    color: black !important;
+}
 @media (max-width: 992px) {
-    .banner-title-1 {
-        font-size: 30px !important;
-    }
-    .banner-title-2 {
-        font-size: 35px !important;
-    }
-    .banner-title-3 {
-
-    }
-}
-@media (max-width: 768px) {
-    .banner-title-1 {
-        font-size: 30px !important;
-    }
-    .banner-title-2 {
-        font-size: 32px !important;
-    }
-    .banner {
-        text-align: center !important;
+    .brand-name {
+        border: 1px solid;
+        padding: 10px 2px 11px 2px !important;
     }
 }
 
-@media (max-width: 420px) {
-    .brand-text {
-        font-size: 16px;
+@media (max-width: 368px) {
+    header .brand-name {
+        font-size: 17px !important;
+        padding: 12px 3px !important;
     }
-    .brand-logo {
-        width: 60px;
-        height: 60px;
+
+    header .brand-logo {
+        width: 50px;
+        height: 50px;
     }
 }
 
-@media (min-width: 768px) {
-    .brand {
-        width: 197px !important;
-    }
-}
-
-/* Footer style */
+/* Footer CSS */
 .edu-footer {
     background: #0f172a !important;
     color: #94a3b8 !important;
@@ -148,13 +204,8 @@ body {
     line-height: 1.6;
 }
 
-    .contact-info i {
-        width: 20px;
-        margin-right: 0.5rem;
-        color: #3b82f6 !important;
-    }
-
-/*Banner design*/
-.banner-wrapper {
-    background-image: linear-gradient( 180deg, hsl(0deg 45% 96%) 0%, hsl(0deg 45% 96%) 13%, hsl(0deg 46% 96%) 18%, hsl(0deg 46% 96%) 23%, hsl(0deg 46% 96%) 27%, hsl(0deg 46% 97%) 30%, hsl(0deg 46% 97%) 33%, hsl(0deg 46% 97%) 37%, hsl(0deg 46% 97%) 40%, hsl(0deg 46% 97%) 43%, hsl(0deg 46% 98%) 46%, hsl(0deg 46% 98%) 49%, hsl(0deg 46% 98%) 51%, hsl(0deg 46% 98%) 54%, hsl(0deg 46% 98%) 57%, hsl(0deg 46% 98%) 60%, hsl(0deg 46% 99%) 63%, hsl(0deg 46% 99%) 67%, hsl(0deg 46% 99%) 70%, hsl(0deg 46% 99%) 73%, hsl(0deg 46% 99%) 77%, hsl(0deg 46% 100%) 82%, hsl(0deg 46% 100%) 87%, hsl(0deg 0% 100%) 100% );
+.contact-info i {
+    width: 20px;
+    margin-right: 0.5rem;
+    color: #3b82f6 !important;
 }

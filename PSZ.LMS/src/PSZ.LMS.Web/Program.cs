@@ -22,7 +22,6 @@ try
 
     var builder = WebApplication.CreateBuilder(args);
 
-    builder.WebHost.UseUrls("http://localhost:4545");
 
     // Add services to the container.
     var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");

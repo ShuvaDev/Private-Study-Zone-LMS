@@ -1,7 +1,7 @@
 .left_arrow {
     position:absolute;
     top: 35%;
-    left: -28px;
+    left: -10px;
     font-size: 24px;
     height: 43px;
     width: 43px;
@@ -44,6 +44,7 @@
     border-color: #246c4e;
 }
 
+/*
 .slick-dots {
     position: absolute;
     bottom: -10%;
@@ -69,4 +70,9 @@
     height: 15px;
     width: 15px;
 
+}
+*/
+
+.slick-track {
+    margin-left: 0 !important;
 }
