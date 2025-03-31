@@ -10,7 +10,7 @@ namespace PSZ.LMS.Domain.Entities
     public class Category : IEntity<Guid>
     {
         public Guid Id { get; set; }
-        public string? Name { get; set; }
-
+        public string Name { get; set; }
+        public bool IsActive { get; set; }
     }
 }

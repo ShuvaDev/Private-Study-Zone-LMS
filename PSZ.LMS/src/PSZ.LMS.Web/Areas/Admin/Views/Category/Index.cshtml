@@ -14,7 +14,20 @@
             display: inline-flex !important;
             align-items: center !important;
             gap: 5px !important;
-            font-weight: 500 !important;
+            font-weight: 600 !important;
+        }
+
+        table .bg-danger {
+            background: #ffd2d2 !important;
+            color: #a84019 !important;
+            font-size: 14px !important;
+            text-align: center !important;
+            padding: 10px 24px !important;
+            border-radius: 4px !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 5px !important;
+            font-weight: 600 !important;
         }
     </style>
 }
@@ -22,99 +35,25 @@
 <div class="card">
     <div class="card-header d-flex justify-content-between">
         <h4 class="card-title">Category List</h4>
-        <button class="btn" style="height: 40px; background: black; color: white">
+        <a asp-controller="Category" asp-action="Add" class="btn" style="height: 40px; background: black; color: white">
             <i class="bi bi-plus-circle"></i> Create New
-        </button>
+        </a>
     </div>
     <!-- /.card-header -->
     <div class="card-body pt-2">
         <table id="category-list" class="table">
             <thead class="bg-primary">
                 <tr>
-                    <th>Serial</th>
-                    <th>Category</th>
+                    <th>Category Name</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Server Management</td>
-                    <td><span class="badge bg-success">Active</span></td>
-                    <td>
-                        <button class="btn btn-secondary" style="background: black;padding: 7px 25px;">
-                            <i class="bi bi-pencil-square"></i> Edit
-                        </button>
-                        <button class="btn btn-danger" style="background: #FC6239"><i class="bi bi-trash-fill"></i></button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>1</td>
-                    <td>Server Management</td>
-                    <td><span class="badge bg-success">Active</span></td>
-                    <td>
-                        <button class="btn btn-secondary" style="background: black;padding: 7px 25px;">
-                            <i class="bi bi-pencil-square"></i> Edit
-                        </button>
-                        <button class="btn btn-danger" style="background: #FC6239"><i class="bi bi-trash-fill"></i></button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>1</td>
-                    <td>Server Management</td>
-                    <td><span class="badge bg-success">Active</span></td>
-                    <td>
-                        <button class="btn btn-secondary" style="background: black;padding: 7px 25px;">
-                            <i class="bi bi-pencil-square"></i> Edit
-                        </button>
-                        <button class="btn btn-danger" style="background: #FC6239"><i class="bi bi-trash-fill"></i></button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>1</td>
-                    <td>Server Management</td>
-                    <td><span class="badge bg-success">Active</span></td>
-                    <td>
-                        <button class="btn btn-secondary" style="background: black;padding: 7px 25px;">
-                            <i class="bi bi-pencil-square"></i> Edit
-                        </button>
-                        <button class="btn btn-danger" style="background: #FC6239"><i class="bi bi-trash-fill"></i></button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>1</td>
-                    <td>Server Management</td>
-                    <td><span class="badge bg-success">Active</span></td>
-                    <td>
-                        <button class="btn btn-secondary" style="background: black;padding: 7px 25px;">
-                            <i class="bi bi-pencil-square"></i> Edit
-                        </button>
-                        <button class="btn btn-danger" style="background: #FC6239"><i class="bi bi-trash-fill"></i></button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>1</td>
-                    <td>Server Management</td>
-                    <td><span class="badge bg-success">Active</span></td>
-                    <td>
-                        <button class="btn btn-secondary" style="background: black;padding: 7px 25px;">
-                            <i class="bi bi-pencil-square"></i> Edit
-                        </button>
-                        <button class="btn btn-danger" style="background: #FC6239"><i class="bi bi-trash-fill"></i></button>
-                    </td>
-                </tr>
-
             </tbody>
             <tfoot>
                 <tr>
-                    <th>Serial</th>
-                    <th>Category</th>
+                    <th>Category Name</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
@@ -136,21 +75,75 @@
     <script src="~/Admin/plugins/pdfmake/pdfmake.min.js"></script>
     <script src="~/Admin/plugins/pdfmake/vfs_fonts.js"></script>
     <script src="~/Admin/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-    <script src="~/Admin/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-    <script src="~/Admin/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
     <script>
-        $(function () {
+        
 
-          $('#category-list').DataTable({
-            "paging": true,
-            "lengthChange": true,
-            "searching": true,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false,
-            "responsive": true,
-          });
-        });
+        $(function () {
+            $("#category-list").DataTable({
+                processing: true,
+                serverSide: true,
+                responsive: true,
+                lengthChange: true,
+                autoWidth: false,
+                buttons: [
+                    {
+                        extend: 'excel',
+                        text: 'Export to Excel',
+                        className: 'btn btn-secondary me-1' 
+                    },
+                    {
+                        extend: 'pdf',
+                        text: 'Export to PDF',
+                        className: 'btn btn-secondary' // Red color
+                    }
+                ],
+                dom: '<"top"lf>rt<"bottom"ipB>',
+                lengthMenu: [
+                    [10, 25, 50, -1],
+                    [10, 25, 50, 'All']
+                ],
+                ajax: {
+                    url: "/Admin/Category/GetCategoryJsonData",
+                    type: "POST",
+                    contentType: "application/json", //must be added
+                    dataType: "json", //better to add, not mandatory
+                    data: function (d) {
+                        d.SearchItem = {
+                        };
+                        return JSON.stringify(d);
+                    },
+                },
+                columnDefs: [
+                    {
+                        orderable: true,
+                        targets: 1,
+                        render: function (data, type, row) {
+                            if(data === "True") {
+                                return `<span class="badge bg-success">Active</span>`
+                            }
+                            else {
+                                return `<span class="badge bg-danger">Not Active</span>`
+                            }
+                        }
+                    },
+                    {
+                        orderable: false,
+                        targets: 2,
+                        render: function (data, type, row) {
+                            console.log(type);
+                            return `<button type="submit" class="btn btn-secondary" style="background: black;padding: 7px 25px;" onclick="window.location.href='/admin/category/update/${data}'" value='${data}'>
+                                        <i class="bi bi-pencil-square"></i> Edit
+                                    </button>
+                                    <button type="submit" class="btn btn-danger show-bs-modal" style="background: #FC6239" data-id='${data}' value='${data}'>
+                                        <i class="bi bi-trash-fill"></i>
+                                    </button>`;
+                        }
+                    }
+                ]
+            });
+         });
     </script>
+
+    <partial name="_ResponsePartial" />
 }

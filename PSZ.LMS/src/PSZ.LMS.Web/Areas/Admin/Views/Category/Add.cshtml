@@ -1,0 +1,67 @@
+﻿@model AddCategoryModel
+
+@section Styles {
+    <link rel="stylesheet" href="~/Admin/css/Category.css"/>
+}
+
+
+<div class="card">
+    <div class="form-header card-header d-flex justify-content-between">
+        <h3 class="card-title"><i class="bi bi-plus-circle-fill me-1"></i> Add New Category</h3>
+        <a asp-controller="Category" asp-action="Index" class="btn" style="height: 40px; background: black; color: white">
+            <i class="bi bi-list-ul me-2"></i>Category List
+        </a>
+    </div>
+
+    <div class="card-body pt-4">
+        <form asp-antiforgery="true" asp-area="Admin" asp-controller="Category" asp-action="Add" method="post">
+            <div class="mb-4">
+                <label asp-for="Name" class="form-label fw-bold mb-3"></label>
+                <input type="text"
+                       class="form-control form-control-custom"
+                       placeholder="Enter category name"
+                       asp-for="Name">
+				<span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="mb-5 d-flex align-items-center justify-content-between">
+                <span class="fw-bold">Visibility</span>
+                <input type="hidden" asp-for="IsActive" id="isActiveInput" value="true">
+                
+                <div class="toggle-switch @(Model.IsActive == true ? "active" : "")"
+                     id="visibilityToggle"
+                     onclick="toggleSwitch(this)">
+                    <div class="toggle-switch-handle"></div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-gradient my-4">
+                <i class="bi bi-plus-circle me-2"></i>Add Category
+            </button>
+        </form>
+    </div>
+
+</div>
+
+@section Scripts {
+    <script>
+        function toggleSwitch(element) {
+            element.classList.toggle('active');
+            // Update the hidden input value
+            const isActive = element.classList.contains('active');
+            document.getElementById('isActiveInput').value = isActive;
+        }
+
+        // Initialize toggle state based on model value (for edit scenarios)
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggle = document.getElementById('visibilityToggle');
+            if (toggle.classList.contains('active')) {
+                document.getElementById('isActiveInput').value = true;
+            }
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <partial name="_ValidationScriptsPartial" />
+
+}

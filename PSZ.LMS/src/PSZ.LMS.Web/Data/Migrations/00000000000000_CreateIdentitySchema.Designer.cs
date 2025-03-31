@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using PSZ.LMS.Infrastructure;
 using PSZ.LMS.Web.Data;
 
 namespace PSZ.LMS.Web.Data.Migrations

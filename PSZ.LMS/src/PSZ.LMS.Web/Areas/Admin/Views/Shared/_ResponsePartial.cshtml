@@ -1,0 +1,33 @@
+﻿@using PSZ.LMS.Infrastructure
+
+@if (TempData.Peek<ResponseModel>("ResponseMessage") != null)
+{
+    var response = TempData.Get<ResponseModel>("ResponseMessage");
+
+
+    <link rel="stylesheet" href="~/css/toast-plugin.css" />
+    <script src="~/js/toast-plugin-min.js"></script>
+
+    if (response.Type == ResponseTypes.Success) {
+        <script>
+            $.toast({
+                title:"Success Message",
+                message:"@(response.Message)",
+                type:"success",
+                duration: 5000
+            });
+
+        </script>
+    }
+    if (response.Type == ResponseTypes.Danger)
+    {
+        <script>
+            $.toast({
+                title:"Error Message",
+                message:"@(response.Message)",
+                type:"error",
+                duration: 5000
+            });
+        </script>
+    }
+}

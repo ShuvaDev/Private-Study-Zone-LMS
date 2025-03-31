@@ -11,24 +11,25 @@ namespace PSZ.LMS.Domain.Entities
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public string? Title { get; set; } // Short title
-        public string? Description { get; set; }
         public bool IsPaid { get; set; }
         public int? Fee { get; set; }
         public int? Discount { get; set; }
         public string? Thumbnail { get; set; }
-        public string? IntroVideoLink { get; set; } // Youtube Video
         public CourseType CourseType { get; set; } // ENUM : live, recorded, offline
         public DateTime? StartFrom { get; set; } // If live course
         public string? Duration { get; set; } // If live course i.e. 3 Months
-        public double? AccessDuration { get; set; } // If live and recorded
-        public AccessDurationUnit? AccessDurationUnit { get; set; } // ENUM : Day, Week, Month, Year, LifeTime
         public Guid CategoryId { get; set; }
-        public int? TotalNotes { get;set; }
-        public int? TotalVideos { get; set; } // If online course
-
         public bool IsVisible { get; set; }
-        public List<Review>? Reviews { get; set; }
+
+
+        public string? ShortDescription { get; set; } // Short description for Course Details Page
+        public string? Description { get; set; } // Long Description for Course Details Page
+        public string? IntroVideoLink { get; set; } // Youtube Video for Course Details Page
+        public double? AccessDuration { get; set; } // If live and recorded (For Card in Course Details Page)
+        public AccessDurationUnit? AccessDurationUnit { get; set; } // ENUM : Day, Week, Month, Year, LifeTime
+        public int? TotalNotes { get;set; } // for card in course details page
+        public int? TotalVideos { get; set; } // If online course (for card in course details page)
+        public List<Review>? Reviews { get; set; } // For Course Details Page
 
         public CourseContent? CourseContent { get; set; }
 
