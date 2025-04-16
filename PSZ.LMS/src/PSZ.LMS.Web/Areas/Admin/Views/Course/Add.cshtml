@@ -1,6 +1,15 @@
-﻿@section Styles {
+﻿@model AddCourseModel
+
+@section Styles {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+    <!-- Include jQuery.filer CSS -->
+    
+    <link href="https://cdn.jsdelivr.net/npm/jquery.filer@1.3.0/css/jquery.filer.min.css" rel="stylesheet">
+
+
     <style>
         :root {
             --primary: #6366f1;
@@ -107,81 +116,220 @@
             margin-bottom: 1.5rem;
             padding-top: 2.5rem; /* Added space for delete button */
         }
-
+       
         .video-item {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
             position: relative;
-            margin-bottom: 1rem;
-            padding-right: 40px; /* Space for delete button */
         }
 
+            .video-item .row:first-child {
+                margin-bottom: 1rem;
+            }
+
         .video-delete-btn {
-            top: 50%;
-            transform: translateY(-50%);
-            right: 6px;
-            background: black;
+            top: 15px;
+            right: 15px;
+            background: #ef4444;
+            z-index: 2;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Custom styling for the toggle switch */
+        .form-check-input:checked {
+            background-color: #6366f1;
+            border-color: #6366f1;
+        }
+
+        .form-switch .form-check-input {
+            cursor: pointer;
+        }
+
+        .price-field:disabled, .discount-field:disabled {
+            background-color: #f8f9fa;
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        /* Align the toggle label properly */
+        .form-check-label {
+            margin-left: 0.5rem;
+            cursor: pointer;
         }
 
     </style>
-    }
+}
 
-    <div class="card">
-        <!-- Progress Stepper -->
-        <div class="stepper-wrapper">
-            <div class="stepper-item active">
-                <div class="step-counter">1</div>
-                <div class="step-title">Basic Info</div>
-            </div>
-            <div class="stepper-item">
-                <div class="step-counter">2</div>
-                <div class="step-title">Details</div>
-            </div>
-            <div class="stepper-item">
-                <div class="step-counter">3</div>
-                <div class="step-title">Content</div>
-            </div>
-            <div class="stepper-item">
-                <div class="step-counter">4</div>
-                <div class="step-title">Review</div>
-            </div>
+
+<div class="card">
+    <!-- Progress Stepper -->
+    <div class="stepper-wrapper">
+        <div class="stepper-item active">
+            <div class="step-counter">1</div>
+            <div class="step-title">Basic Info</div>
         </div>
+        <div class="stepper-item">
+            <div class="step-counter">2</div>
+            <div class="step-title">Details</div>
+        </div>
+        <div class="stepper-item">
+            <div class="step-counter">3</div>
+            <div class="step-title">Content</div>
+        </div>
+        <div class="stepper-item">
+            <div class="step-counter">4</div>
+            <div class="step-title">Review</div>
+        </div>
+    </div>
 
-        <form id="courseForm" class="bg-white p-4 rounded-3 shadow-sm">
-            <!-- Step 3: Course Content -->
-            <div class="form-step active" id="step3">
-                <h4 class="mb-4 text-primary"><i class="fas fa-play-circle me-2"></i>Course Content</h4>
+    <form id="courseForm" class="bg-white p-4" asp-controller="Course" asp-action="Add" method="post">
+        <div class="form-step active" id="step1">
+            <h4 class="mb-4 text-primary"><i class="fas fa-info-circle me-2"></i>Basic Information</h4>
 
-                <div class="lessons-container">
-                    <!-- Initial Lesson Card -->
-                    <div class="lesson-card">
-                        <div class="delete-btn lesson-delete-btn">
-                            <i class="fas fa-times"></i>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Lesson Title</label>
-                            <input type="text" class="form-control" required>
-                        </div>
-
-                        <div class="videos-container">
-                            <div class="video-item">
-                                <div class="delete-btn video-delete-btn">
-                                    <i class="fas fa-times"></i>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Video Link</label>
-                                    <input type="url" class="form-control" placeholder="https://example.com/video" required>
-                                </div>
-                            </div>
-                        </div>
-
-                        <button type="button" class="btn btn-outline-secondary btn-sm add-video">
-                            <i class="fas fa-plus me-2"></i>Add Video
-                        </button>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="form-label">Course Title</label>
+                        <input type="text" class="form-control" placeholder="DUET Admission Physics">
                     </div>
                 </div>
 
-                <button type="button" class="btn btn-outline-primary w-100 mt-3 add-lesson">
-                    <i class="fas fa-plus me-2"></i>Add New Lesson
-                </button>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="form-label">Course Category</label>
+                        <select class="form-select" required>
+                            <option value="">Select Category</option>
+                            <option>Programming</option>
+                            <option>Design</option>
+                            <option>Business</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="col-12">
+                    <div class="form-group">
+                        <label class="form-label">Short Description</label>
+                        <textarea class="form-control" rows="3" required></textarea>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="form-group">
+                        <label class="form-label">Course Description</label>
+                        <div id="editor-container" style="height: 200px;"></div>
+                    </div>
+                </div>
+                <!-- New Paid/Free Toggle Row -->
+                <div class="col-12">
+                    <div class="row g-3 align-items-center">
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label class="form-label">Course Type</label>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="paidToggle" style="width: 3em; height: 1.5em;">
+                                    <label class="form-check-label" for="paidToggle">Paid Course</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label">Price ($)</label>
+                                <input type="number" class="form-control price-field" placeholder="0.00" step="0.01" disabled>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label">Discount (%)</label>
+                                <input type="number" class="form-control discount-field" placeholder="0" min="0" max="100" disabled>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="form-group">
+                        <label class="form-label">Course Thumbnail</label>
+                        <input type="file" name="thumbnail" id="thumbnailUpload">
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="form-group">
+                        <label class="form-label">Instructors</label>
+                        <select class="form-select" multiple required style="height: 120px;">
+                            <option>John Doe</option>
+                            <option>Jane Smith</option>
+                            <option>Mike Johnson</option>
+                        </select>
+                        <small class="text-muted">Hold Ctrl/Cmd to select multiple instructors</small>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-end mt-4 gap-3">
+                    <button type="button" class="btn btn-lg btn-primary px-5 next-step">
+                        Next <i class="fas fa-arrow-right ms-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="form-step" id="step2">
+            <h4 class="mb-4 text-primary"><i class="fas fa-tag me-2"></i>Course Details</h4>
+
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="form-label">Price (USD)</label>
+                        <input type="number" class="form-control" step="0.01" required>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="form-label">Course Duration</label>
+                        <input type="number" class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="form-group">
+                        <label class="form-label mb-3">Course Type</label>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="course-type-card" data-target="live">
+                                    <i class="fas fa-video course-type-icon"></i>
+                                    <h5>Live Course</h5>
+                                    <p class="text-muted mb-0 mt-2">Real-time sessions with students</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="course-type-card" data-target="recorded">
+                                    <i class="fas fa-file-video course-type-icon"></i>
+                                    <h5>Recorded Course</h5>
+                                    <p class="text-muted mb-0 mt-2">Pre-recorded video lessons</p>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="radio" name="courseType" id="live" class="d-none" required>
+                        <input type="radio" name="courseType" id="recorded" class="d-none">
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="form-group">
+                        <label class="form-label">Course Thumbnail</label>
+                        <input type="file" class="form-control" accept="image/*" required>
+                    </div>
+                </div>
 
                 <div class="d-flex justify-content-between mt-4">
                     <button type="button" class="btn btn-outline-secondary prev-step">
@@ -192,15 +340,118 @@
                     </button>
                 </div>
             </div>
-        </form>
-    </div>
+        </div>
+        <!-- Step 3: Course Content -->
+        <div class="form-step" id="step3">
+            <h4 class="mb-4 text-primary"><i class="fas fa-play-circle me-2"></i>Course Content</h4>
+
+            <div class="lessons-container">
+                <!-- Initial Lesson Card -->
+                <div class="lesson-card">
+                    <div class="delete-btn lesson-delete-btn">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label">Lesson Title</label>
+                        <input type="text" class="form-control" name="Lessons[0].Name" required>
+                    </div>
+
+                    <div class="videos-container">
+                        <div class="video-item">
+                            <div class="delete-btn video-delete-btn">
+                                <i class="fas fa-times"></i>
+                            </div>
+                            <div class="row g-3">
+                                <!-- First Row: Video Link and Type -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Video Link</label>
+                                        <input type="text" class="form-control" placeholder="https://example.com/video" required
+                                               name="Lessons[0].Topics[0].VideoLink">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Hosting Type</label>
+                                        <select class="form-select" required name="Lessons[0].Topics[0].VideoType">
+                                            <option value="">Select Type</option>
+                                            <option value="YouTube">YouTube</option>
+                                            <option value="Vimeo">Vimeo</option>
+                                            <option value="Videochiper">Videochiper</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Second Row: Description (Full Width) -->
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label class="form-label">Description</label>
+                                        <div id="editor-container" style="height: 200px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-outline-secondary btn-sm add-video">
+                        <i class="fas fa-plus me-2"></i>Add Video
+                    </button>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-outline-primary w-100 mt-3 add-lesson">
+                <i class="fas fa-plus me-2"></i>Add New Lesson
+            </button>
+
+            <div class="d-flex justify-content-between mt-4">
+                <button type="button" class="btn btn-outline-secondary prev-step">
+                    <i class="fas fa-arrow-left me-2"></i>Back
+                </button>
+                <input type="submit" class="btn btn-warning" />
+                <button type="button" class="btn btn-primary next-step">
+                    Next <i class="fas fa-arrow-right ms-2"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
 
 @section Scripts {
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+    <!-- Include jQuery.filer JS -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery.filer@1.3.0/js/jquery.filer.min.js"></script>
     <script>
         $(document).ready(function() {
-            let currentStep = 3; // Start at content step for demo
+             $('#thumbnailUpload').filer({
+                limit: 1,
+                maxSize: 3,
+                extensions: ["jpg", "png", "gif"],
+                showThumbs: true
+             });
+        });
+        
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            // Toggle Price/Discount fields
+            $('#paidToggle').change(function() {
+                const isPaid = $(this).is(':checked');
+                $('.price-field, .discount-field').prop('disabled', !isPaid);
+
+                if (!isPaid) {
+                    $('.price-field, .discount-field').val('');
+                }
+            });
+        });
+    </script>
+    <script>
+        
+
+        $(document).ready(function() {
+            let currentStep = 1; // Start at content step for demo
 
             // Navigation functions
             function updateStepper() {
@@ -214,50 +465,131 @@
                 });
             }
 
-            // Add New Lesson
-            $('.add-lesson').click(function() {
-                const newLesson = `
-                    <div class="lesson-card">
-                        <div class="delete-btn lesson-delete-btn">
-                            <i class="fas fa-times"></i>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Lesson Title</label>
-                            <input type="text" class="form-control" required>
-                        </div>
-                        <div class="videos-container">
-                            <div class="video-item">
-                                <div class="delete-btn video-delete-btn">
-                                    <i class="fas fa-times"></i>
+                    let lessonIndex = 1;
+        let topicIndex = 1;
+
+        // Add New Lesson
+        $('.add-lesson').click(function() {
+            const newLesson = `
+                <div class="lesson-card">
+                    <div class="delete-btn lesson-delete-btn">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label">Lesson Title</label>
+                        <input type="text" class="form-control" name="Lessons[0].Name" required>
+                    </div>
+
+                    <div class="videos-container">
+                        <div class="video-item">
+                            <div class="delete-btn video-delete-btn">
+                                <i class="fas fa-times"></i>
+                            </div>
+                            <div class="row g-3">
+                                <!-- First Row: Video Link and Type -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Video Link</label>
+                                        <input type="text" class="form-control" placeholder="https://example.com/video" required
+                                               name="Lessons[0].Topics[0].VideoLink">
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="form-label">Video Link</label>
-                                    <input type="url" class="form-control" placeholder="https://example.com/video" required>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Hosting Type</label>
+                                        <select class="form-select" required name="Lessons[0].Topics[0].VideoType">
+                                            <option value="">Select Type</option>
+                                            <option value="YouTube">YouTube</option>
+                                            <option value="Vimeo">Vimeo</option>
+                                            <option value="Videochiper">Videochiper</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Second Row: Description (Full Width) -->
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label class="form-label">Description</label>
+                                        <div id="editor-container" style="height: 200px;"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <button type="button" class="btn btn-outline-secondary btn-sm add-video">
-                            <i class="fas fa-plus me-2"></i>Add Video
-                        </button>
-                    </div>`;
-                $('.lessons-container').append(newLesson);
-            });
+                    </div>
 
-            // Add Video
-            $(document).on('click', '.add-video', function() {
-                const videoContainer = $(this).siblings('.videos-container');
-                const newVideo = `
-                    <div class="video-item">
-                        <div class="delete-btn video-delete-btn">
-                            <i class="fas fa-times"></i>
+                    <button type="button" class="btn btn-outline-secondary btn-sm add-video">
+                        <i class="fas fa-plus me-2"></i>Add Video
+                    </button>
+                </div>`;
+            $('.lessons-container').append(newLesson);
+            lessonIndex++;
+            topicIndex = 1; // Reset topic index for new lesson
+        });
+
+        // Add Video
+        $(document).on('click', '.add-video', function() {
+            const lessonCard = $(this).closest('.lesson-card');
+            const lessonIndex = $('.lesson-card').index(lessonCard);
+            const videoContainer = $(this).siblings('.videos-container');
+            const topicIndex = videoContainer.children().length;
+
+            const newVideo = `
+                <div class="video-item">
+                    <div class="delete-btn video-delete-btn">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Video Link</label>
+                                <input type="text" class="form-control" required
+                                       name="Lessons[${lessonIndex}].Topics[${topicIndex}].VideoLink">
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label class="form-label">Video Link</label>
-                            <input type="url" class="form-control" placeholder="https://example.com/video" required>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Hosting Type</label>
+                                <select class="form-select" required
+                                        name="Lessons[${lessonIndex}].Topics[${topicIndex}].VideoType">
+                                    <option value="">Select Type</option>
+                                    <option value="YouTube">YouTube</option>
+                                    <option value="Vimeo">Vimeo</option>
+                                    <option value="Videochiper">Videochiper</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>`;
-                videoContainer.append(newVideo);
-            });
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label class="form-label">Description</label>
+                                <div id="editor-container" style="height: 200px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+
+            videoContainer.append(newVideo);
+
+        });
+
+        var quill = new Quill('#editor-container', {
+            theme: 'snow',
+            modules: {
+              toolbar: [
+                ['bold', 'italic', 'underline'],        // toggled buttons
+                ['link', 'blockquote', 'code-block'],
+                [{ 'header': 1 }, { 'header': 2 }],       // custom button values
+                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                [{ 'script': 'sub'}, { 'script': 'super' }], // superscript/subscript
+                [{ 'indent': '-1'}, { 'indent': '+1' }],  // outdent/indent
+                [{ 'direction': 'rtl' }],                 // text direction
+                [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+                [{ 'color': [] }, { 'background': [] }],    // dropdown with defaults from theme
+                [{ 'font': [] }],
+                [{ 'align': [] }],
+                ['clean']                                 // remove formatting button
+              ]
+            }
+        });
 
             // Delete Lesson
             $(document).on('click', '.lesson-delete-btn', function() {

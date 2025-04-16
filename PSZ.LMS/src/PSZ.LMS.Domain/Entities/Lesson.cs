@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace PSZ.LMS.Domain.Entities
 {
-    public class Chapter : IEntity<Guid>
+    public class Lesson : IEntity<Guid>
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public List<Topic>? Topics { get; set; }
+        public List<Topic> Topics { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PSZ.LMS.Domain.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,8 +14,9 @@ namespace PSZ.LMS.Domain.Entities
         public bool IsPrivate { get; set; }
         public string Duration { get; set; }
         public string? Description { get; set; }
+        public VideoHostType HostType { get; set; } // ENUM: Youtube, VIDEOCHIPER
         public string VideoLink { get; set; }
-        public List<Comment>? Comments { get; set; }
+        //public List<Comment>? Comments { get; set; }
 
     }
 }
